@@ -16,3 +16,15 @@ const observer = new IntersectionObserver((entries, observer) => {
 
 observer.observe(block_3);
 observer.observe(author);
+
+document.addEventListener('scroll', () => {
+  const reviewCards = document.querySelectorAll('.block_7');
+  reviewCards.forEach((card) => {
+    const rect = card.getBoundingClientRect();
+    if (rect.top < window.innerHeight) {
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }
+  });
+});
+
